@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <div>
+            <h1 class="text-white"> Edit Task -</h1>
+        </div>
+        <form action="" method="post" class="mt-5 ">
+            {% csrf_token %}
+            <div class="rounded">
+                <label class="text-white" for="">Title: </label>
+                <input type="text" name="title" value="{{task.title}}" id="">
+            </div>
+            <input type="number" name="id" value="" hidden>
+
+            <br><br>
+        
+            <button class="btn btn-danger" type="submit">Edit</button>
+        </form>
+    </div>
+{% endblock content %}

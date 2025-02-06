@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="progress bg-dark border border-white rounded-pill">
+            <div class="m-5">
+              <h2><b>Todo Done</b></h2>
+              <h5>Keep it up</h5>
+            </div>
+            <div class="progress-circle mt-3">
+                <span class="progress-text">{{ undones.count }}/{{total }}</span>
+            </div>
+        </div>
+       <form action="" method="post">
+        {% csrf_token %}
+          <div class="container flex d-flex">
+            <input name="todo" type="text" class="task-input rounded-pill" placeholder="write your next task">
+            <button class="add-button rounded-circle ml-2 mt-1" type="submit">+</button>
+          </div>
+       </form>
+        <form action="done" method="post">
+          {% csrf_token %}
+          {% for todo in undones %}
+          <a href='edit/{{todo.id}}'>
+            <div class="task-item rounded-pill">
+              <div>
+                <input type="checkbox" name="dones[]" value="{{todo.id}}" id="">
+                {{ todo.title }}
+
+              </div>
+              <div class="task-icons">
+                  <a href="delete/{{todo.id}}">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        
+        <button class="rounded-pill btn btn-danger" type="submit"><b>Done</b></button>
+        </form>
+        <br>
+        <h1>Already Done Tasks</h1>
+        <div class="container">
+          
+         {% for todo in dones %}
+         <div class="task-item rounded-pill">
+            <div>
+              <input type="checkbox" checked disabled>
+                {{ todo.title }}
+            </div>
+            <a class="task-icons" href="delete/{{todo.id}}">
+              <i class="fas fa-trash-alt "></i>
+            </a>
+          </div>
+         {% endfor %}
+        
+        
+    </div>
+</body>
+</html>
+
+  
+{% endblock content %}
