@@ -131,7 +131,7 @@ jobs:
             set -e
             echo "🚀 Starting Deployment..."
             
-            cd /var/www/logiciel-analyse-psychiatrie-psychologie
+            cd /var/www/django-todoapp/
             chmod +x deploy.sh
             
             echo "📂 Running deploy.sh in background..."
