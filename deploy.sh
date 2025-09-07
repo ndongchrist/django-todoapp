@@ -23,5 +23,8 @@ python manage.py migrate
 # Collect static files
 python manage.py collectstatic --noinput
 
+# stop the app that was running on port 8000
+fuser -k 8000/tcp
+
 # Restart the application (e.g., using systemctl)
 python manage.py runserver 0.0.0:8000
