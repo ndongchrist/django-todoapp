@@ -52,9 +52,11 @@ jobs:
           source venv/bin/activate
           python manage.py migrate --noinput
         env:
-          POSTGRES_USER: test_user
-          POSTGRES_PASSWORD: test_password
-          POSTGRES_DB: test_db
+          DB_NAME: test_db
+          DB_USER: test_user
+          DB_PASSWORD: test_password
+          DB_HOST: localhost
+          DB_PORT: 5432
 
       - name: Run Tests
         run: |
@@ -86,7 +88,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "❌ Échec des tests sur la CI/CD"
-          to: "donaldtedom0@gmail.com, mandepriscille1@gmail.com, djoukevin1469@gmail.com, angewatiopiankeu@gmail.com" # Utilisation de l'email de l'auteur du commit
+          to: "christianhonore2003@gmail.com" # Utilisation de l'email de l'auteur du commit # Utilisation de l'email de l'auteur du commit
           from: "CI/CD Pipeline"
           body: |
             Bonjour,
@@ -157,7 +159,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "❌ Échec des tests sur la CI/CD"
-          to: "donaldtedom0@gmail.com, mandepriscille1@gmail.com, djoukevin1469@gmail.com, angewatiopiankeu@gmail.com"
+          to: "christianhonore2003@gmail.com" # Utilisation de l'email de l'auteur du commit
           from: "CI/CD Pipeline"
           body: |
             Bonjour,
@@ -189,7 +191,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "✅ Déploiement Réussi 🚀"
-          to: "donaldtedom0@gmail.com, mandepriscille1@gmail.com, djoukevin1469@gmail.com, angewatiopiankeu@gmail.com" # Utilisation de l'email de l'auteur du commit
+          to: "christianhonore2003@gmail.com" # Utilisation de l'email de l'auteur du commit # Utilisation de l'email de l'auteur du commit
           from: "CI/CD Pipeline"
           body: |
             Bonjour,
