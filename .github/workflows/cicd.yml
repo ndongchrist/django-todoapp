@@ -61,7 +61,8 @@ jobs:
       - name: Run Tests
         run: |
           source venv/bin/activate
-          python manage.py test | tee test_report.txt
+          python manage.py test 2>&1 | tee test_report.txt
+          exit ${PIPESTATUS[0]}
 
         env:
           DB_NAME: test_db
