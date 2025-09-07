@@ -58,12 +58,17 @@ jobs:
           DB_HOST: localhost
           DB_PORT: 5432
 
-      - name: Run Tests
+      - name: Run Tests and Capture Failure
+        id: test-runner
         continue-on-error: true
         run: |
           source venv/bin/activate
           python manage.py test 2>&1 | tee test_report.txt
-          exit ${PIPESTATUS[0]}
+          TEST_EXIT_CODE=$?
+          cat test_report.txt
+            
+          # Set output variable
+          echo "passed=$( [ $TEST_EXIT_CODE -eq 0 ] && echo 'true' || echo 'false' )" >> $GITHUB_OUTPUT
 
         env:
           DB_NAME: test_db
@@ -83,10 +88,11 @@ jobs:
           echo "COMMIT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
           echo "DATE=$(date)" >> $GITHUB_ENV
           echo "EMAIL=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
+          echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
 
 
       - name: Send Email Notification (Failure)
-        if: failure()
+        if: steps.test-runner.outputs.passed == 'false'
         continue-on-error: true
         uses: dawidd6/action-send-mail@v3
         with:
