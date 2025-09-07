@@ -63,6 +63,13 @@ jobs:
           source venv/bin/activate
           python manage.py test | tee test_report.txt
 
+        env:
+          DB_NAME: test_db
+          DB_USER: test_user
+          DB_PASSWORD: test_password
+          DB_HOST: localhost
+          DB_PORT: 5432
+
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
         with:
