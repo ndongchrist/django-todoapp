@@ -1,3 +1,6 @@
 from django.test import TestCase
 
-# Create your tests here.
+# Write a test that will fail no matter what
+class FailingTest(TestCase):
+    def test_fail(self):
+        self.assertEqual(1, 0, "This test is designed to fail")
