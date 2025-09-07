@@ -8,6 +8,9 @@ REQUIREMENTS_FILE="$APP_DIR/requirements.txt"
 # Navigate to the application directory
 cd $APP_DIR
 
+# Pull the latest changes from the repository
+git pull origin main
+
 # Activate the virtual environment
 source $VENV_DIR/bin/activate
 
