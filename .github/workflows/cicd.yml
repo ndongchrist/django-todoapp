@@ -91,13 +91,13 @@ jobs:
           body: |
             Bonjour,
 
-            ❗ Les tests automatiques ont échoué sur la branche `master`. ❗ par ${{ env.EMAIL}}
+            ❗ Les tests automatiques ont échoué sur la branche `main`. ❗ par ${{ env.EMAIL}}
 
             **Détails de l'échec :**
             - 🏷️ Commit : ${{ env.COMMIT_HASH }}
             - 📅 Date : ${{ env.DATE }}
             - 🔗 Repository : ${{ github.repository }}
-            - 📂 Branche : `master`
+            - 📂 Branche : `main`
             - 🚨 Par: ${{ env.EMAIL }}
             - 🚨 Erreur : Consultez le rapport de test joint.
 
@@ -162,13 +162,13 @@ jobs:
           body: |
             Bonjour,
 
-            ❗ Les tests automatiques ont échoué sur la branche `master`. ❗
+            ❗ Les tests automatiques ont échoué sur la branche `main`. ❗
 
             **Détails de l'éche par ${{ env.EMAIL}} :**
             - 🏷️ Commit : ${{ env.COMMIT_HASH }}
             - 📅 Date : ${{ env.DATE }}
             - 🔗 Repository : ${{ github.repository }}
-            - 📂 Branche : `master`
+            - 📂 Branche : `main`
             - 🚨 Par: ${{ env.EMAIL }}
             - 🚨 Erreur : Consultez le rapport de test joint.
 
@@ -194,13 +194,13 @@ jobs:
           body: |
             Bonjour,
 
-            Le déploiement de votre code sur la branche `master` a été effectué avec succès ! 🎉
+            Le déploiement de votre code sur la branche `main` a été effectué avec succès ! 🎉
 
             **Détails du déploiement par ${{ env.EMAIL}} :**
             - 🏷️ Commit : ${{  env.COMMIT_HASH }}
             - 📅 Date : ${{ env.DATE }}
             - 🔗 Repository : ${{ github.repository }}
-            - 📂 Branche : `master`
+            - 📂 Branche : `main`
             - 📊 by : ${{ env.EMAIL }}
 
             Merci pour votre contribution ! 👍
