@@ -24,6 +24,9 @@ COPY --from=builder /usr/local /usr/local
 # Copy application code
 COPY . .
 
+# Ensure run.sh is executable
+RUN chmod +x ./run.sh
+
 # Expose port
 EXPOSE 8000
 
