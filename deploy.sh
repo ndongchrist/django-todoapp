@@ -12,9 +12,9 @@ git pull origin main
 chmod +x run.sh
 
 # Stop and remove existing containers
-docker-compose down
+docker compose down
 
 # Build and start containers
-docker-compose up -d
+docker compose up -d
 
 echo "✅ Deployment completed successfully!"

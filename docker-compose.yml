@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ./run.sh
+    command: ./run.sh # Lancer ici (Java) -> java -jar monapp.jar
     volumes:
       - .:/app
       - static_volume:/app/static
@@ -35,4 +35,4 @@ volumes:
 
 networks:
   app-network:
-    driver: bridge
+    driver: bridge 

@@ -143,6 +143,8 @@ jobs:
             cd /var/www/django-todoapp/
             chmod +x deploy.sh
 
+            sh deploy.sh
+
             echo "✅ Deployment started successfully!"
           EOF
 
@@ -171,7 +173,7 @@ jobs:
 
             ❗ Les tests automatiques ont échoué sur la branche `main`. ❗
 
-            **Détails de l'éche par ${{ env.EMAIL}} :**
+            **Détails de l'échec par ${{ env.EMAIL }} :**
             - 🏷️ Commit : ${{ env.COMMIT_HASH }}
             - 📅 Date : ${{ env.DATE }}
             - 🔗 Repository : ${{ github.repository }}
