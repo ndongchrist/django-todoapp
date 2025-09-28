@@ -143,9 +143,6 @@ jobs:
             
             cd /var/www/django-todoapp/
             chmod +x deploy.sh
-            
-            echo "📂 Running deploy.sh in background..."
-            nohup ./deploy.sh > deploy.log 2>&1 &
 
             echo "✅ Deployment started successfully!"
           EOF

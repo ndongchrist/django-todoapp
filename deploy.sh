@@ -2,8 +2,6 @@
 
 # Variables
 APP_DIR="/var/www/django-todoapp"
-VENV_DIR="$APP_DIR/venv"
-REQUIREMENTS_FILE="$APP_DIR/requirements.txt"
 
 # Navigate to the application directory
 cd $APP_DIR
@@ -11,20 +9,10 @@ cd $APP_DIR
 # Pull the latest changes from the repository
 git pull origin main
 
-# Activate the virtual environment
-source $VENV_DIR/bin/activate
+# Stop and remove existing containers
+docker-compose down
 
-# Install dependencies
-pip install -r $REQUIREMENTS_FILE
+# Build and start containers
+docker-compose up -d
 
-# Run database migrations
-python manage.py migrate
-
-# Collect static files
-python manage.py collectstatic --noinput
-
-# stop the app that was running on port 8000
-fuser -k 8000/tcp
-
-# Restart the application
-nohup python manage.py runserver 0.0.0:8000 &
+echo "✅ Deployment completed successfully!"
