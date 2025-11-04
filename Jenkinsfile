@@ -15,7 +15,7 @@ pipeline {
         stage('Build Docker Images---') {
             steps {
                 echo 'Building Docker images...'
-                sh 'sudo docker compose build'
+                sh 'docker compose build'
             }
         }
 
